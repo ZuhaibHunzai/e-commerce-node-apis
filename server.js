@@ -1,5 +1,6 @@
 require("dotenv").config({});
 const express = require("express");
+const cors = require("cors");
 const PORT = process.env.PORT || 8000;
 const { connect } = require("./configs/mongooseConfig");
 const app = express();
@@ -13,6 +14,12 @@ app.use(express.urlencoded({ extended: false }));
 // const indexRouter = require("./routes");
 // app.use("/api", indexRouter);
 
+const corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use("/api", require("./routes"));
 
 app.use("*", (req, res) => {

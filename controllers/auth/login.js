@@ -7,13 +7,13 @@ const jwtConfig = getJwtConfig();
 
 module.exports = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    if (!username || !password)
+    if (!email || !password)
       return res.status(400).json({ message: "Invalid username or password" });
 
     //  get user
-    const user = (await User.findOne({ username })).toObject();
+    const user = (await User.findOne({ email })).toObject();
     if (!user) return res.status(404).json({ message: "User not found" });
 
     // check password
@@ -31,7 +31,7 @@ module.exports = async (req, res, next) => {
 
     const resPayload = {
       accessToken,
-      ...user,
+      userData: user,
     };
 
     res.status(200).json(resPayload);

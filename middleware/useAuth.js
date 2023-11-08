@@ -25,8 +25,11 @@ module.exports = async (req, res, next) => {
       // ** Get user that matches id in token
       const user = await User.findById(userId);
       const userData = { ...user.toObject(), password: undefined };
+
+      // old token
+      const payload = { accessToken: authToken, userData: userData };
       // ** return 200 with user data
-      req.user = userData;
+      req.user = payload;
 
       next();
 
