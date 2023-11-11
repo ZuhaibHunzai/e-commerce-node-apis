@@ -3,5 +3,7 @@ const authRouter = require("./auth");
 
 // api/auth
 indexRouter.use("/auth", authRouter);
+indexRouter.use("/products", require("./products"));
+indexRouter.use("/user", require("./user"));
 
 module.exports = indexRouter;

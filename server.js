@@ -11,9 +11,6 @@ connect();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// const indexRouter = require("./routes");
-// app.use("/api", indexRouter);
-
 const corsOptions = {
   origin: "*",
   optionsSuccessStatus: 200,

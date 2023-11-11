@@ -17,6 +17,19 @@ const User = model(
       type: String,
       required: true,
     },
+    cart: [
+      {
+        productId: {
+          type: Schema.Types.ObjectId,
+          ref: "Products",
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          default: 1,
+        },
+      },
+    ],
   })
 );
 
