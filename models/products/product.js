@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const UploadProductSchema = new Schema({
+const ProductSchema = new Schema({
   productImage: {
     type: String,
     required: true,
@@ -19,6 +19,11 @@ const UploadProductSchema = new Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
+  },
 });
 
-module.exports = model("Product", UploadProductSchema);
+module.exports = model("Product", ProductSchema);
