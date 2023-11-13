@@ -5,5 +5,6 @@ const authRouter = require("./auth");
 indexRouter.use("/auth", authRouter);
 indexRouter.use("/products", require("./products"));
 indexRouter.use("/user", require("./user"));
+indexRouter.use("/admin", require("./category"));
 
 module.exports = indexRouter;

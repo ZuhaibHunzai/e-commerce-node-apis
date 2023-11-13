@@ -6,6 +6,6 @@ module.exports = async (req, res) => {
     const product = await Product.deleteOne({ _id: productId });
     res.status(200).send({ product });
   } catch (err) {
-    res.status(500).json({ message: err.message || "something went   wrong" });
+    res.status(500).json({ message: err.message || "something went wrong" });
   }
 };
