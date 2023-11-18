@@ -2,9 +2,20 @@ const Product = require("../../models/products/product");
 
 module.exports = async (req, res, next) => {
   try {
-    const { productImage, productName, productPrice, productDescription } =
-      req.body;
-    if (!productImage || !productName || !productPrice || !productDescription) {
+    const {
+      productImage,
+      productName,
+      productPrice,
+      productDescription,
+      category,
+    } = req.body;
+    if (
+      !productImage ||
+      !productName ||
+      !productPrice ||
+      !productDescription ||
+      !category
+    ) {
       return res.status(400).json({
         message: "invalid  payload",
       });
@@ -15,6 +26,7 @@ module.exports = async (req, res, next) => {
       productName,
       productPrice,
       productDescription,
+      category,
     });
     await UploadProduct.save();
     res.status(200).json(UploadProduct);
