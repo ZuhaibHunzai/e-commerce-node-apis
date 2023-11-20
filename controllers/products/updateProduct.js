@@ -6,7 +6,6 @@ module.exports = async (req, res) => {
     const { productImage, productName, ProductPrice, ProductDescription } =
       req.body;
 
-    console.log(req.params);
     if (!productId) {
       return res.status(400).json({ message: "productId ID is required" });
     }

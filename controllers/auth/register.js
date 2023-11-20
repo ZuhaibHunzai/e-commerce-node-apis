@@ -9,7 +9,6 @@ module.exports = async (req, res, next) => {
       return res.status(400).json({
         message: "invalid payload",
       });
-    // TODO: check for existing email and username
 
     const salt = await bcrypt.genSalt(12);
 
